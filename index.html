@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Иван Поленок — Senior Affiliate Manager</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="progressBar"></div>
+<div id="customCursor">⭐</div>
+
+<div class="page">
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <button class="lang-toggle" id="langToggle" onclick="toggleLang()">EN</button>
+    <div class="topbar-left">
+      <div class="top-name" id="topName" data-i18n="name">Иван Поленок</div>
+      <div class="top-title" id="topTitleEl"><span></span></div>
+      <div class="view-counter" id="viewCounter"></div>
+    </div>
+    <div class="topbar-right">
+      <div class="top-contact">
+        <div class="top-contact-label">Telegram</div>
+        <div class="top-contact-val clickable" onclick="copyContact('@ivan_polenok')">@ivan_polenok</div>
+      </div>
+      <div class="top-contact">
+        <div class="top-contact-label">Email</div>
+        <div class="top-contact-val">polenok.ivan18@gmail.com</div>
+      </div>
+      <div class="top-contact">
+        <div class="top-contact-label" data-i18n="lbl_phone">Телефон</div>
+        <div class="top-contact-val clickable" onclick="copyContact('+7 977 704-06-77')">+7 977 704-06-77</div>
+      </div>
+      <div class="top-contact">
+        <div class="top-contact-label" data-i18n="lbl_location">Локация</div>
+        <div class="top-contact-val" data-i18n="loc_val">Ереван · remote</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-row">
+    <div class="stat">
+      <div class="stat-icon">🌐</div>
+      <div>
+        <div class="stat-val" style="font-size:16px; padding-top:3px;" data-i18n="s1_val">Нетворк</div>
+        <div class="stat-desc" data-i18n="s1_desc">хантинг и реактивация</div>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="stat-icon">👥</div>
+      <div>
+        <div class="stat-val">100<span>+</span></div>
+        <div class="stat-desc" data-i18n="s2_desc">вебов в работе</div>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="stat-icon green">📈</div>
+      <div>
+        <div class="stat-val green">+40<span style="color:var(--accent2)">%</span></div>
+        <div class="stat-desc" data-i18n="s3_desc">рост активных партнёров</div>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="stat-icon">🚀</div>
+      <div>
+        <div class="stat-val">×2.5<span>–3</span></div>
+        <div class="stat-desc" data-i18n="s4_desc">рост оборота топ-партнёров</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- MAIN -->
+    <div class="main">
+
+      <div class="about" data-i18n="about">
+        Специализируюсь на полном цикле работы с вебмастерами — от хантинга и онбординга до реактивации и масштабирования топ-партнёров. Понимаю трафик изнутри: сам лил на Facebook и push-сетях. Выстраиваю долгосрочные отношения с партнёрами и конвертирую их в стабильный рост оборота.
+      </div>
+
+      <!-- ОПЫТ -->
+      <div class="section">
+        <div class="section-head"><h2 data-i18n="h_exp">Опыт работы</h2></div>
+
+        <div class="job">
+          <div class="job-meta">
+            <div class="job-title">Senior Affiliate Manager · TL Telegram Buying</div>
+            <div class="job-period">02.2023 — 04.2026</div>
+          </div>
+          <div class="job-company" data-i18n="j1_co">Lead-Magnet · CPA-сеть · инфобиз, EdTech, HR, инвестиции · Remote</div>
+          <div class="job-growth" data-i18n="j1_gr">Team Lead (TG Buying) → Senior Affiliate Manager → Head of Affiliate Network</div>
+          <ul class="bullets">
+            <li data-i18n="j1_1">Личное ведение <b>100+ вебмастеров</b>: hunt → onboard → activate → retain; сегментация по потенциалу.</li>
+            <li data-i18n="j1_2">Рост доли активных партнёров <b>+40%</b> через Customer Success-подход: онбординг, грейдирование, QBR.</li>
+            <li data-i18n="j1_3">Построение retention-модели: <b>45%+</b> активных партнёров удержаны стабильно.</li>
+            <li data-i18n="j1_4">Хантинг «китов»: поиск, переговоры, сопровождение до первой прибыли и масштабирования.</li>
+            <li data-i18n="j1_5">Переговоры с рекламодателями: рост payout от <b>+25% до 5x</b> для high-volume партнёров.</li>
+            <li data-i18n="j1_6">Запустил Telegram-направление с нуля — боты, CPL/CPF воронки, <b>ROMI до 220%</b>.</li>
+            <li data-i18n="j1_7">Привлёк внешнего партнёра, запустил новую вертикаль от идеи до первых активных вебов.</li>
+            <li data-i18n="j1_8">Разработал Starter Pack для TG-вебов: гайды, видео, шаблоны — ускорил запуск новых партнёров.</li>
+            <li data-i18n="j1_9">Fraud-контроль, сквозная аналитика, постбеки, дашборды DataLens по каждому партнёру.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-meta">
+            <div class="job-title">Affiliate Manager (Middle)</div>
+            <div class="job-period">07.2024 — 02.2025</div>
+          </div>
+          <div class="job-company" data-i18n="j2_co">LeadCash · CPA-сеть · финтех (MFO, брокеры) · Remote</div>
+          <ul class="bullets">
+            <li data-i18n="j2_1">Ведение <b>100+ вебмастеров</b>: запуск, сопровождение, реактивация, рост оборота.</li>
+            <li data-i18n="j2_2">Развивал in-house брокер: Google AdSense, PWA, пиксельная интеграция, CRM.</li>
+            <li data-i18n="j2_3">Рост прибыли брокера <b>в 3+ раза</b> за три месяца (~$1K → ~$3.8K); ROMI пик <b>140%</b>.</li>
+            <li data-i18n="j2_4">Переговоры с брокерами по ставкам; интеграция офферов PH/MX; размещение на внешних витринах.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-meta">
+            <div class="job-title">Head of Traffic &amp; Performance</div>
+            <div class="job-period">02.2024 — 07.2024</div>
+          </div>
+          <div class="job-company" data-i18n="j3_co">Онлайн-школа PROдвижение</div>
+          <ul class="bullets">
+            <li data-i18n="j3_1">Управление рекламным бюджетом <b>15+ млн ₽</b>; 17 подрядчиков (Google, Meta, VK, Директ, TG, CPA).</li>
+            <li data-i18n="j3_2">Рост CPA-канала <b>+25%</b> при сохранении ROI; конверсия лендингов <b>+10–15%</b>.</li>
+            <li data-i18n="j3_3">Спецусловия и бонусы от CPA-сетей; система обучения подрядчиков.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-meta">
+            <div class="job-title">Media Buyer (Facebook)</div>
+            <div class="job-period">12.2022 — 02.2024</div>
+          </div>
+          <div class="job-company">LeadCash · Remote</div>
+          <ul class="bullets">
+            <li data-i18n="j4_1">Бюджеты до <b>$10K/мес</b>; ROI <b>15–20%</b> на финансовых офферах.</li>
+            <li data-i18n="j4_2">Push-сети, клоакинг, антидетект Dolphin; GEO: CIS, LATAM, SEA, Africa.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-meta">
+            <div class="job-title" data-i18n="j5_ti">Media Buyer &amp; Таргетолог</div>
+            <div class="job-period">01.2021 — 12.2022</div>
+          </div>
+          <div class="job-company" data-i18n="j5_co">Фриланс / ранние проекты</div>
+          <ul class="bullets">
+            <li data-i18n="j5_1"><b>35+ проектов</b>: финтех, EdTech, инфобизнес, e-commerce, недвижимость.</li>
+            <li data-i18n="j5_2">Facebook, VK, Instagram; Keitaro, AppsFlyer; CPA-офферы и push-сети.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ОБРАЗОВАНИЕ -->
+      <div class="section">
+        <div class="section-head"><h2 data-i18n="h_edu">Образование</h2></div>
+        <div class="job" style="border:none; margin:0; padding:0;">
+          <div class="job-meta">
+            <div class="job-title" data-i18n="edu_ti">Российский университет дружбы народов (РУДН)</div>
+            <div class="job-period">2022</div>
+          </div>
+          <div class="job-company" data-i18n="edu_co">г. Москва</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <div class="sb-section">
+        <div class="sb-label" data-i18n="sb_comp">Компетенции</div>
+        <div class="comp-card">
+          <div class="comp-title">Publisher Dev</div>
+          <div class="comp-text" data-i18n="c1_tx">Hunt → onboard → activate → retain · хантинг китов · реактивация · грейдирование · QBR · CS-playbooks</div>
+        </div>
+        <div class="comp-card">
+          <div class="comp-title" data-i18n="c2_ti">Переговоры</div>
+          <div class="comp-text" data-i18n="c2_tx">Ставки, лимиты, капы · спецтермы · бонусы от сетей · привлечение внешних партнёров</div>
+        </div>
+        <div class="comp-card">
+          <div class="comp-title" data-i18n="c3_ti">Аналитика</div>
+          <div class="comp-text" data-i18n="c3_tx">ROI/ROMI/LTV/EPC/CR · план-факт · HADI · DataLens · постбеки в реальном времени</div>
+        </div>
+        <div class="comp-card">
+          <div class="comp-title" data-i18n="c4_ti">Качество трафика</div>
+          <div class="comp-text" data-i18n="c4_tx">Fraud-контроль · фильтрация · контроль атрибуции · мониторинг CR по каждому партнёру</div>
+        </div>
+      </div>
+
+      <div class="sb-divider"></div>
+
+      <div class="sb-section">
+        <div class="sb-label" data-i18n="sb_tools">Инструменты</div>
+        <div class="skill-name" style="font-size:10px; color:var(--light); margin-bottom:5px; margin-top:2px;" data-i18n="tl_sub1">Трекинг &amp; аналитика</div>
+        <div class="skill-tags" style="gap:5px; margin-bottom:8px;">
+          <span class="tag blue">Affise</span>
+          <span class="tag blue">Keitaro</span>
+          <span class="tag blue">AppsFlyer</span>
+          <span class="tag">DataLens</span>
+          <span class="tag">Google Sheets</span>
+          <span class="tag" data-i18n="tag_utm">UTM/постбеки</span>
+        </div>
+        <div class="skill-name" style="font-size:10px; color:var(--light); margin-bottom:5px;" data-i18n="tl_sub2">Коммуникация &amp; CRM</div>
+        <div class="skill-tags" style="gap:5px; margin-bottom:8px;">
+          <span class="tag">CRM</span>
+          <span class="tag">UniSender</span>
+          <span class="tag">Dolphin Anty</span>
+        </div>
+        <div class="skill-name" style="font-size:10px; color:var(--light); margin-bottom:5px;" data-i18n="tl_sub3">Антифрод &amp; спай</div>
+        <div class="skill-tags" style="gap:5px; margin-bottom:8px;">
+          <span class="tag">Fraudscore</span>
+          <span class="tag">TrafficBack</span>
+          <span class="tag">AdSpy</span>
+          <span class="tag">Publer</span>
+          <span class="tag">TGStat</span>
+        </div>
+        <div class="skill-name" style="font-size:10px; color:var(--light); margin-bottom:5px;" data-i18n="tl_sub4">Лендинги &amp; продукт</div>
+        <div class="skill-tags" style="gap:5px; margin-bottom:8px;">
+          <span class="tag">Tilda</span>
+        </div>
+        <div class="skill-name" style="font-size:10px; color:var(--light); margin-bottom:5px;" data-i18n="tl_sub5">AI-инструменты</div>
+        <div class="skill-tags" style="gap:5px;">
+          <span class="tag blue">Claude Code</span>
+          <span class="tag blue">Kimi</span>
+          <span class="tag blue">Cursor</span>
+        </div>
+      </div>
+
+      <div class="sb-divider"></div>
+
+      <div class="sb-section">
+        <div class="sb-label" data-i18n="sb_traf">Трафик — источники</div>
+        <div class="skill-tags" style="gap:5px; margin-bottom:8px;">
+          <span class="tag green">Meta (FB/Inst)</span>
+          <span class="tag green">Telegram</span>
+          <span class="tag green">VK</span>
+          <span class="tag green" data-i18n="tag_push">Push-сети</span>
+          <span class="tag" data-i18n="tag_job">Job-сайты</span>
+          <span class="tag" data-i18n="tag_email">Email-рассылки</span>
+          <span class="tag" data-i18n="tag_pwa">PWA/прилы</span>
+          <span class="tag" data-i18n="tag_yd">Яндекс.Директ</span>
+          <span class="tag">Google AdSense</span>
+          <span class="tag">CPA-сети</span>
+        </div>
+        <div class="skill-name" style="font-size:10px; color:var(--light); margin-bottom:5px; margin-top:4px;" data-i18n="sb_pay">Модели выплат</div>
+        <div class="skill-tags" style="gap:5px;">
+          <span class="tag">CPL</span>
+          <span class="tag">CPF</span>
+          <span class="tag">CPA</span>
+          <span class="tag">CPI</span>
+          <span class="tag">CPC</span>
+          <span class="tag">RevShare</span>
+        </div>
+      </div>
+
+      <div class="sb-divider"></div>
+
+      <div class="sb-section">
+        <div class="sb-label" data-i18n="sb_vert">Вертикали</div>
+        <div class="skill-tags" style="gap:5px;">
+          <span class="tag">Fintech</span>
+          <span class="tag">HR</span>
+          <span class="tag">Infobiz</span>
+          <span class="tag">EdTech</span>
+          <span class="tag">E-com</span>
+        </div>
+      </div>
+
+      <div class="sb-divider"></div>
+
+      <div class="sb-section">
+        <div class="sb-label">GEO</div>
+        <div class="skill-tags" style="gap:5px;">
+          <span class="tag">CIS</span>
+          <span class="tag">LATAM (MX)</span>
+          <span class="tag">SEA (PH, MY, VN)</span>
+          <span class="tag">Africa (ZA)</span>
+          <span class="tag">US/EU</span>
+        </div>
+      </div>
+
+      <div class="sb-divider"></div>
+
+      <div class="sb-section">
+        <div class="sb-label" data-i18n="sb_add">Дополнительно</div>
+        <div class="info-row"><div class="info-dot"></div><span data-i18n="info_1">Русский — родной</span></div>
+        <div class="info-row"><div class="info-dot"></div><span data-i18n="info_2">English — working proficiency</span></div>
+        <div class="info-row"><div class="info-dot"></div><span data-i18n="info_3">Remote / hybrid</span></div>
+        <div class="info-row"><div class="info-dot"></div><span data-i18n="info_4">Готов к переезду</span></div>
+        <div class="info-row"><div class="info-dot" style="background:var(--accent2)"></div><span data-i18n="info_5">от 200 000 ₽ + KPI</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- REACTIONS -->
+  <div class="reactions-block">
+    <span class="reactions-label" data-i18n="react_label">Что думаете о кандидате?</span>
+    <div class="reactions-btns">
+      <button class="reaction-btn" id="react-fire" onclick="addReaction('fire')">
+        <span>🔥</span><span id="cnt-fire">12</span>
+      </button>
+      <button class="reaction-btn" id="react-muscle" onclick="addReaction('muscle')">
+        <span>💪</span><span id="cnt-muscle">8</span>
+      </button>
+      <button class="reaction-btn" id="react-star" onclick="addReaction('star')">
+        <span>⭐</span><span id="cnt-star">15</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- MINI GAME -->
+  <div class="minigame-wrap">
+    <button class="minigame-btn" data-i18n="minigame_btn" onclick="openMinigame()">Нажми если считаешь что уже видел достаточно</button>
+  </div>
+
+</div>
+
+<!-- EXIT INTENT TOAST -->
+<div class="exit-toast" id="exitToast">
+  <div class="exit-toast-emoji">⭐</div>
+  <div class="exit-toast-text">
+    <b data-i18n="toast_title">Минуту.</b><br>
+    <span data-i18n="toast_body">Вы же ищете того кто растит партнёров, а не просто ведёт их? Иван именно такой.</span>
+  </div>
+  <button class="exit-toast-btn" onclick="window.open('https://t.me/ivan_polenok','_blank')" data-i18n="toast_btn">Написать →</button>
+  <button class="exit-toast-close" onclick="closeExitToast()">×</button>
+</div>
+
+<!-- COPY EASTER EGG TOAST -->
+<div class="copy-toast" id="copyToast"></div>
+
+<!-- CONTACT COPY TOAST -->
+<div class="contact-toast" id="contactToast"></div>
+
+<!-- EASTER EGG MODAL -->
+<div class="modal-overlay" id="easterModal" onclick="closeModal('easterModal', event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('easterModal')">×</button>
+    <div class="modal-emoji">🎯</div>
+    <div class="modal-title">Вы нашли пасхалку.</div>
+    <div class="modal-subtitle">Это знак — надо написать.<br>Такие внимательные люди точно умеют работать с партнёрами 😏</div>
+    <a class="modal-btn primary" href="https://t.me/ivan_polenok" target="_blank">Написать в TG</a>
+  </div>
+</div>
+
+<!-- MINI GAME MODAL -->
+<div class="modal-overlay" id="minigameModal" onclick="closeModal('minigameModal', event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('minigameModal')">×</button>
+    <div class="modal-emoji">🤔</div>
+    <div class="modal-title" data-i18n="mg_title">Итак, ваше решение?</div>
+    <div class="modal-subtitle" data-i18n="mg_sub">Три варианта. Один правильный.</div>
+    <a class="modal-btn primary" href="https://t.me/ivan_polenok" target="_blank" data-i18n="mg_btn1">✅ Написать сейчас</a>
+    <a class="modal-btn secondary" href="https://t.me/ivan_polenok" target="_blank" data-i18n="mg_btn2">⏰ Написать завтра</a>
+    <a class="modal-btn ghost" href="https://t.me/ivan_polenok" target="_blank" data-i18n="mg_btn3">😬 Я пожалею об этом</a>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script async src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="js/translations.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
