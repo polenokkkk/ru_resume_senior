@@ -275,22 +275,39 @@ function openMinigame() {
 var reactBase = { fire: 12, muscle: 8, star: 15 };
 
 function initReactions() {
-  ['fire', 'muscle', 'star'].forEach(function(key) {
-    var delta = parseInt(localStorage.getItem('react_' + key)) || 0;
-    var voted = localStorage.getItem('react_' + key + '_v') === '1';
-    document.getElementById('cnt-' + key).textContent = reactBase[key] + delta;
-    if (voted) document.getElementById('react-' + key).classList.add('voted');
-  });
+  try {
+    ['fire', 'muscle', 'star'].forEach(function(key) {
+      var delta = parseInt(localStorage.getItem('react_' + key)) || 0;
+      var voted = localStorage.getItem('react_' + key + '_v') === '1';
+
+      var cntEl = document.getElementById('cnt-' + key);
+      if (cntEl) cntEl.textContent = reactBase[key] + delta;
+
+      var btn = document.getElementById('react-' + key);
+      if (btn && voted) btn.classList.add('voted');
+    });
+  } catch(e) {
+    console.error('Init reactions error:', e);
+  }
 }
 
 function addReaction(key) {
-  if (localStorage.getItem('react_' + key + '_v') === '1') return;
-  var delta = (parseInt(localStorage.getItem('react_' + key)) || 0) + 1;
-  localStorage.setItem('react_' + key, delta);
-  localStorage.setItem('react_' + key + '_v', '1');
-  document.getElementById('cnt-' + key).textContent = reactBase[key] + delta;
-  var btn = document.getElementById('react-' + key);
-  btn.classList.add('voted');
-  btn.style.transform = 'scale(1.3)';
-  setTimeout(function() { btn.style.transform = ''; }, 200);
+  try {
+    if (localStorage.getItem('react_' + key + '_v') === '1') return;
+    var delta = (parseInt(localStorage.getItem('react_' + key)) || 0) + 1;
+    localStorage.setItem('react_' + key, delta);
+    localStorage.setItem('react_' + key + '_v', '1');
+
+    var cntEl = document.getElementById('cnt-' + key);
+    if (cntEl) cntEl.textContent = reactBase[key] + delta;
+
+    var btn = document.getElementById('react-' + key);
+    if (btn) {
+      btn.classList.add('voted');
+      btn.style.transform = 'scale(1.3)';
+      setTimeout(function() { btn.style.transform = ''; }, 200);
+    }
+  } catch(e) {
+    console.error('Reaction error:', e);
+  }
 }
