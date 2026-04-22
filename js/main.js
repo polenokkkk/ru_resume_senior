@@ -5,7 +5,12 @@ var typingInterval = null;
 var viewCount = null;
 
 // ─────────── INIT ───────────
-(function init() {
+function runInit() {
+  // Ensure modals are hidden on load
+  document.querySelectorAll('.modal-overlay').forEach(function(el) {
+    el.classList.remove('show');
+  });
+
   var saved = localStorage.getItem('cv_lang');
   if (saved === 'ru' || saved === 'en') {
     currentLang = saved;
@@ -25,7 +30,13 @@ var viewCount = null;
 
   // Start typing effect immediately
   runTypingEffect();
-})();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', runInit);
+} else {
+  runInit();
+}
 
 // ─────────── LANGUAGE ───────────
 function applyLangInit() {
