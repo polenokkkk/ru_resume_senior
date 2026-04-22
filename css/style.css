@@ -420,7 +420,7 @@ body {
   .reactions-block { padding: 20px; }
   .minigame-wrap { padding: 10px 20px 24px; }
 
-  .exit-toast { flex-wrap: wrap; }
+  .exit-toast { flex-wrap: wrap; display: none !important; }
   .exit-toast-btn { width: 100%; text-align: center; margin-top: 4px; }
   .copy-toast { right: 10px; left: 10px; text-align: center; white-space: normal; }
   .contact-toast { white-space: normal; text-align: center; width: calc(100% - 32px); }

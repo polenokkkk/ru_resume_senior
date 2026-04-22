@@ -27,6 +27,7 @@ function runInit() {
   // Initialize features
   initViewCounter();
   initReactions();
+  initExitIntent();
 
   // Start typing effect immediately
   runTypingEffect();
@@ -132,11 +133,13 @@ document.addEventListener('visibilitychange', function() {
 var exitToastShown = false;
 var isDesktop = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-if (isDesktop) {
+function initExitIntent() {
+  if (!isDesktop) return;
   document.addEventListener('mouseleave', function(e) {
     if (e.clientY < 10 && !exitToastShown) {
       exitToastShown = true;
-      document.getElementById('exitToast').classList.add('show');
+      var el = document.getElementById('exitToast');
+      if (el) el.classList.add('show');
     }
   });
 }
