@@ -350,16 +350,24 @@ function downloadPDF() {
   btn.disabled = true;
   btn.innerHTML = '⏳ ' + t.pdf_loading;
 
-  // Show PDF footer with link
+  var page = document.querySelector('.page');
+
+  // Show PDF footer
   var footer = document.getElementById('pdfUrlFooter');
   if (footer) footer.style.display = 'block';
+
+  // Fix overflow so full content is captured
+  var prevOverflow = page.style.overflow;
+  var prevRadius = page.style.borderRadius;
+  page.style.overflow = 'visible';
+  page.style.borderRadius = '0';
 
   // Hide interactive elements
   var style = document.createElement('style');
   style.id = 'pdf-hide';
   style.textContent = [
     '#progressBar,#customCursor,#exitToast,#copyToast,#contactToast',
-    '.lang-toggle,.topbar-actions,.reactions-block,.minigame-wrap',
+    '.topbar-controls,.reactions-block,.minigame-wrap',
     '.view-counter,.type-cursor'
   ].join(',') + '{ display:none !important; }';
   document.head.appendChild(style);
@@ -368,14 +376,17 @@ function downloadPDF() {
   var filename = 'Ivan-Polenok-CV-' + lang + '.pdf';
 
   var opt = {
-    margin: [0, 0, 0, 0],
+    margin: 0,
     filename: filename,
     image: { type: 'jpeg', quality: 0.97 },
     html2canvas: {
       scale: 1.5,
       useCORS: true,
       logging: false,
-      windowWidth: 1080
+      scrollX: 0,
+      scrollY: 0,
+      windowWidth: page.scrollWidth,
+      windowHeight: page.scrollHeight
     },
     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
     pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
@@ -385,10 +396,12 @@ function downloadPDF() {
     var s = document.getElementById('pdf-hide');
     if (s) s.remove();
     if (footer) footer.style.display = '';
+    page.style.overflow = prevOverflow;
+    page.style.borderRadius = prevRadius;
     btn.disabled = false;
     btn.innerHTML = '📥 <span data-i18n="btn_pdf">' + t.btn_pdf + '</span>';
   };
 
-  html2pdf().set(opt).from(document.querySelector('.page')).save()
+  html2pdf().set(opt).from(page).save()
     .then(cleanup).catch(function(e) { console.error('PDF error:', e); cleanup(); });
 }
