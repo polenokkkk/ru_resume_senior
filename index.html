@@ -17,6 +17,10 @@
   <!-- TOP BAR -->
   <div class="topbar">
     <button class="lang-toggle" id="langToggle" onclick="toggleLang()">EN</button>
+    <div class="topbar-actions">
+      <button class="action-btn" id="btnShare" onclick="shareResume()">🔗 <span data-i18n="btn_share">Поделиться</span></button>
+      <button class="action-btn action-btn-primary" id="btnPdf" onclick="downloadPDF()">📥 <span data-i18n="btn_pdf">Скачать PDF</span></button>
+    </div>
     <div class="topbar-left">
       <div class="top-name" id="topName" data-i18n="name">Иван Поленок</div>
       <div class="top-title" id="topTitleEl"><span></span></div>
@@ -380,8 +384,9 @@
 
 <!-- Scripts -->
 <script async src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-<script src="js/translations.js?v=2"></script>
-<script src="js/main.js?v=2"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="js/translations.js?v=3"></script>
+<script src="js/main.js?v=3"></script>
 
 </body>
 </html>

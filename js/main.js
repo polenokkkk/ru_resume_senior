@@ -314,3 +314,73 @@ function addReaction(key) {
     console.error('Reaction error:', e);
   }
 }
+
+// ─────────── SHARE ───────────
+var shareToastTimer = null;
+
+function shareResume() {
+  var url = window.location.href;
+  var t = translations[currentLang] || translations.ru;
+
+  if (navigator.share) {
+    navigator.share({ title: document.title, url: url }).catch(function() {});
+    return;
+  }
+
+  var fn = function() {
+    var toast = document.getElementById('contactToast');
+    toast.textContent = t.share_toast;
+    toast.classList.add('show');
+    clearTimeout(shareToastTimer);
+    shareToastTimer = setTimeout(function() { toast.classList.remove('show'); }, 2500);
+  };
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(fn).catch(function() { fallbackCopy(url); fn(); });
+  } else {
+    fallbackCopy(url);
+    fn();
+  }
+}
+
+// ─────────── DOWNLOAD PDF ───────────
+function downloadPDF() {
+  var t = translations[currentLang] || translations.ru;
+  var btn = document.getElementById('btnPdf');
+  btn.disabled = true;
+  btn.innerHTML = '⏳ ' + t.pdf_loading;
+
+  // Inject hide-style for PDF
+  var style = document.createElement('style');
+  style.id = 'pdf-hide';
+  style.textContent = [
+    '#progressBar,#customCursor,#exitToast,#copyToast,#contactToast',
+    '.lang-toggle,.topbar-actions,.reactions-block,.minigame-wrap',
+    '.view-counter,.type-cursor'
+  ].join(',') + '{ display:none !important; }';
+  document.head.appendChild(style);
+
+  var lang = currentLang === 'ru' ? 'RU' : 'EN';
+  var filename = 'Ivan-Polenok-CV-' + lang + '.pdf';
+
+  var opt = {
+    margin: 0,
+    filename: filename,
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2, useCORS: true, logging: false },
+    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+  };
+
+  html2pdf().set(opt).from(document.querySelector('.page')).save().then(function() {
+    var s = document.getElementById('pdf-hide');
+    if (s) s.remove();
+    btn.disabled = false;
+    btn.innerHTML = '📥 <span data-i18n="btn_pdf">' + t.btn_pdf + '</span>';
+  }).catch(function(e) {
+    console.error('PDF error:', e);
+    var s = document.getElementById('pdf-hide');
+    if (s) s.remove();
+    btn.disabled = false;
+    btn.innerHTML = '📥 <span data-i18n="btn_pdf">' + t.btn_pdf + '</span>';
+  });
+}
