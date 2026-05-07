@@ -162,19 +162,19 @@ body {
 /* ── TOPBAR ACTIONS ── */
 .topbar-actions {
   position: absolute;
-  bottom: 16px; right: 48px;
-  display: flex; gap: 8px;
+  top: 11px; right: 64px;
+  display: flex; gap: 6px;
 }
 .action-btn {
-  display: flex; align-items: center; gap: 6px;
+  display: flex; align-items: center; gap: 5px;
   background: rgba(255,255,255,0.07);
   border: 1px solid rgba(255,255,255,0.15);
   color: #94a3b8;
-  border-radius: 8px; padding: 7px 14px;
-  font-size: 12px; font-weight: 600;
+  border-radius: 6px; padding: 5px 11px;
+  font-size: 11px; font-weight: 600;
   cursor: pointer; font-family: 'Manrope', sans-serif;
   transition: background 0.15s, color 0.15s, border-color 0.15s;
-  white-space: nowrap;
+  white-space: nowrap; line-height: 1;
 }
 .action-btn:hover { background: rgba(255,255,255,0.15); color: #fff; border-color: rgba(255,255,255,0.35); }
 .action-btn:disabled { opacity: 0.5; cursor: not-allowed; }
@@ -182,7 +182,7 @@ body {
 .action-btn-primary:hover { background: rgba(37,99,235,0.45); color: #fff; border-color: #2563eb; }
 
 @media (max-width: 768px) {
-  .topbar-actions { position: static; order: 3; width: 100%; justify-content: flex-start; }
+  .topbar-actions { position: static; order: 3; margin-top: 12px; }
 }
 
 /* ── STATS ── */
@@ -457,10 +457,28 @@ body {
   .contact-toast { white-space: normal; text-align: center; width: calc(100% - 32px); }
 }
 
+/* ── PDF FOOTER ── */
+.pdf-url-footer {
+  display: none;
+  padding: 12px 48px 16px;
+  border-top: 1px solid var(--border);
+  font-size: 11px; color: var(--light);
+  text-align: center;
+}
+.pdf-url-footer a { color: var(--accent); text-decoration: none; font-weight: 600; }
+
+/* ── PAGE BREAK RULES (for PDF export) ── */
+.job { break-inside: avoid; page-break-inside: avoid; }
+.comp-card { break-inside: avoid; page-break-inside: avoid; }
+.bullets li { break-inside: avoid; page-break-inside: avoid; }
+.stat { break-inside: avoid; page-break-inside: avoid; }
+.job-sub-label + ul { break-before: avoid; page-break-before: avoid; }
+
 @media print {
   body { background: #fff; }
   .page { margin: 0; border-radius: 0; box-shadow: none; }
-  #progressBar, #customCursor, .lang-toggle,
+  #progressBar, #customCursor, .lang-toggle, .topbar-actions,
   .exit-toast, .copy-toast, .contact-toast,
   .modal-overlay, .reactions-block, .minigame-wrap { display: none !important; }
+  .pdf-url-footer { display: block !important; }
 }

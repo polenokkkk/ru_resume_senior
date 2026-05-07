@@ -350,7 +350,11 @@ function downloadPDF() {
   btn.disabled = true;
   btn.innerHTML = '⏳ ' + t.pdf_loading;
 
-  // Inject hide-style for PDF
+  // Show PDF footer with link
+  var footer = document.getElementById('pdfUrlFooter');
+  if (footer) footer.style.display = 'block';
+
+  // Hide interactive elements
   var style = document.createElement('style');
   style.id = 'pdf-hide';
   style.textContent = [
@@ -364,23 +368,27 @@ function downloadPDF() {
   var filename = 'Ivan-Polenok-CV-' + lang + '.pdf';
 
   var opt = {
-    margin: 0,
+    margin: [0, 0, 0, 0],
     filename: filename,
-    image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 2, useCORS: true, logging: false },
-    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    image: { type: 'jpeg', quality: 0.97 },
+    html2canvas: {
+      scale: 1.5,
+      useCORS: true,
+      logging: false,
+      windowWidth: 1080
+    },
+    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
   };
 
-  html2pdf().set(opt).from(document.querySelector('.page')).save().then(function() {
+  var cleanup = function() {
     var s = document.getElementById('pdf-hide');
     if (s) s.remove();
+    if (footer) footer.style.display = '';
     btn.disabled = false;
     btn.innerHTML = '📥 <span data-i18n="btn_pdf">' + t.btn_pdf + '</span>';
-  }).catch(function(e) {
-    console.error('PDF error:', e);
-    var s = document.getElementById('pdf-hide');
-    if (s) s.remove();
-    btn.disabled = false;
-    btn.innerHTML = '📥 <span data-i18n="btn_pdf">' + t.btn_pdf + '</span>';
-  });
+  };
+
+  html2pdf().set(opt).from(document.querySelector('.page')).save()
+    .then(cleanup).catch(function(e) { console.error('PDF error:', e); cleanup(); });
 }
