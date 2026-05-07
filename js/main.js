@@ -384,12 +384,10 @@ function downloadPDF() {
       useCORS: true,
       logging: false,
       scrollX: 0,
-      scrollY: 0,
-      windowWidth: page.scrollWidth,
-      windowHeight: page.scrollHeight
+      scrollY: -window.scrollY
     },
     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+    pagebreak: { mode: ['css', 'legacy'] }
   };
 
   var cleanup = function() {
