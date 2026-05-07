@@ -63,12 +63,22 @@ body {
 /* ── TOP BAR ── */
 .topbar {
   background: var(--dark);
-  padding: 36px 48px;
+  padding: 16px 48px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.topbar-controls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+}
+.topbar-main {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   gap: 24px;
-  position: relative;
 }
 
 .top-name {
@@ -142,8 +152,6 @@ body {
 
 /* Lang toggle */
 .lang-toggle {
-  position: absolute;
-  top: 16px; right: 20px;
   background: transparent;
   border: 1px solid rgba(255,255,255,0.2);
   color: #94a3b8;
@@ -161,8 +169,6 @@ body {
 
 /* ── TOPBAR ACTIONS ── */
 .topbar-actions {
-  position: absolute;
-  top: 11px; right: 64px;
   display: flex; gap: 6px;
 }
 .action-btn {
@@ -422,7 +428,9 @@ body {
   body { background: var(--bg); }
   .page { margin: 0; border-radius: 0; box-shadow: none; }
 
-  .topbar { flex-direction: column; align-items: flex-start; padding: 48px 20px 24px; gap: 16px; }
+  .topbar { padding: 16px 20px 24px; gap: 12px; }
+  .topbar-controls { justify-content: flex-start; }
+  .topbar-main { flex-direction: column; align-items: flex-start; gap: 16px; }
   .top-name { font-size: 26px; }
   .top-title { font-size: 12px; }
   .topbar-right { flex-direction: column; gap: 10px; width: 100%; }
