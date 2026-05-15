@@ -560,6 +560,87 @@ body {
 .closed-copyright {
   margin-top: 40px; font-size: 11px; color: #334155; letter-spacing: 0.5px;
 }
+
+/* ── COMIC PANELS ── */
+.comic-side {
+  position: fixed; top: 0; bottom: 0; width: 220px;
+  display: flex; flex-direction: column; justify-content: center;
+  gap: 0; pointer-events: none;
+  z-index: 100000;
+}
+.comic-left  { left: 0; }
+.comic-right { right: 0; }
+
+.comic-panel {
+  border: 3px solid #000;
+  background: #fff;
+  padding: 10px 12px 12px;
+  position: relative;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  box-shadow: 4px 4px 0 #000;
+}
+.comic-left .comic-panel  { border-right-width: 3px; margin-bottom: -3px; }
+.comic-right .comic-panel { border-left-width: 3px;  margin-bottom: -3px; }
+
+.comic-caption {
+  font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
+  font-size: 9px; color: #555; text-transform: uppercase;
+  letter-spacing: 0.5px; align-self: flex-start;
+  border-bottom: 1px solid #ddd; width: 100%; padding-bottom: 3px; margin-bottom: 2px;
+}
+
+.comic-art {
+  font-size: 38px; line-height: 1;
+  filter: drop-shadow(2px 2px 0 rgba(0,0,0,0.15));
+}
+.comic-art.spidey-small { font-size: 28px; }
+.comic-art.spidey-flip  { transform: scaleX(-1); }
+
+.comic-bubble {
+  background: #fff; border: 2.5px solid #000;
+  border-radius: 12px; padding: 7px 10px;
+  font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
+  font-size: 11px; line-height: 1.4; color: #111;
+  position: relative; text-align: center;
+  box-shadow: 2px 2px 0 #000;
+}
+.comic-bubble.exclaim {
+  background: #fef08a; font-weight: 700;
+}
+/* tail right */
+.comic-bubble.bubble-right::after {
+  content: ''; position: absolute;
+  bottom: -10px; right: 18px;
+  border: 8px solid transparent;
+  border-top: 8px solid #000;
+  border-bottom: 0;
+}
+.comic-bubble.bubble-right::before {
+  content: ''; position: absolute;
+  bottom: -7px; right: 20px;
+  border: 6px solid transparent;
+  border-top: 6px solid #fff;
+  border-bottom: 0; z-index: 1;
+}
+/* tail left */
+.comic-bubble.bubble-left::after {
+  content: ''; position: absolute;
+  bottom: -10px; left: 18px;
+  border: 8px solid transparent;
+  border-top: 8px solid #000;
+  border-bottom: 0;
+}
+.comic-bubble.bubble-left::before {
+  content: ''; position: absolute;
+  bottom: -7px; left: 20px;
+  border: 6px solid transparent;
+  border-top: 6px solid #fff;
+  border-bottom: 0; z-index: 1;
+}
+.comic-bubble.exclaim::before { border-top-color: #fef08a; }
+
+@media (max-width: 1100px) { .comic-side { display: none; } }
+
 .closed-contacts { display: flex; flex-direction: column; gap: 12px; align-items: center; }
 .closed-contact-btn {
   display: inline-flex; align-items: center; gap: 10px;
