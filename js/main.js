@@ -25,6 +25,7 @@ function runInit() {
   localStorage.setItem('cv_lang', currentLang);
 
   // Initialize features
+  initClosedPage();
   initViewCounter();
   initReactions();
   initExitIntent();
@@ -312,6 +313,93 @@ function addReaction(key) {
     }
   } catch(e) {
     console.error('Reaction error:', e);
+  }
+}
+
+// ─────────── CLOSED PAGE ───────────
+var closedBadgeClicks = 0;
+var closedBadgeTimer = null;
+
+function applyClosed(closed) {
+  var page = document.querySelector('.page');
+  var closedPage = document.getElementById('closedPage');
+  var progressBar = document.getElementById('progressBar');
+  if (!page || !closedPage) return;
+
+  if (closed) {
+    page.style.display = 'none';
+    if (progressBar) progressBar.style.display = 'none';
+    closedPage.style.display = 'flex';
+    document.title = 'Иван Поленок — Оффер принят ✓';
+  } else {
+    page.style.display = '';
+    if (progressBar) progressBar.style.display = '';
+    closedPage.style.display = 'none';
+    document.title = 'Иван Поленок — Senior Affiliate Manager';
+  }
+}
+
+function toggleClosed(isClosed) {
+  localStorage.setItem('cv_closed', isClosed ? '1' : '0');
+  applyClosed(isClosed);
+  var label = document.getElementById('adminLabel');
+  if (label) label.textContent = isClosed ? 'Резюме закрыто' : 'Резюме открыто';
+}
+
+function initClosedPage() {
+  // Show admin panel if ?admin in URL
+  var isAdmin = window.location.search.indexOf('admin') !== -1;
+  if (isAdmin) {
+    var panel = document.getElementById('adminPanel');
+    if (panel) panel.style.display = 'block';
+    var toggle = document.getElementById('closedToggle');
+    var isClosed = localStorage.getItem('cv_closed') === '1';
+    if (toggle) toggle.checked = isClosed;
+    var label = document.getElementById('adminLabel');
+    if (label) label.textContent = isClosed ? 'Резюме закрыто' : 'Резюме открыто';
+  }
+
+  // Apply closed state
+  var isClosed = localStorage.getItem('cv_closed') === '1';
+  if (isClosed) applyClosed(true);
+
+  // Badge easter egg: triple click
+  var badge = document.getElementById('closedBadge');
+  if (badge) {
+    badge.addEventListener('click', function() {
+      closedBadgeClicks++;
+      badge.classList.remove('shake');
+      void badge.offsetWidth; // reflow
+      badge.classList.add('shake');
+      clearTimeout(closedBadgeTimer);
+
+      if (closedBadgeClicks === 3) {
+        tryConfetti(5);
+      }
+      if (closedBadgeClicks === 7) {
+        var secret = document.getElementById('closedSecret');
+        if (secret) {
+          secret.style.display = 'block';
+          secret.style.animation = 'fadeIn 0.5s ease';
+        }
+        var hint = document.getElementById('closedClickHint');
+        if (hint) hint.style.display = 'none';
+      }
+      if (closedBadgeClicks === 10) {
+        // Konami-style: show resume for 5 seconds
+        applyClosed(false);
+        var notice = document.createElement('div');
+        notice.style.cssText = 'position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#059669;color:#fff;padding:10px 24px;border-radius:8px;z-index:9999999;font-family:Manrope,sans-serif;font-weight:700;font-size:13px;';
+        notice.textContent = '🔓 Секретный доступ: 10 секунд';
+        document.body.appendChild(notice);
+        setTimeout(function() {
+          applyClosed(true);
+          document.body.removeChild(notice);
+          closedBadgeClicks = 0;
+        }, 10000);
+      }
+      closedBadgeTimer = setTimeout(function() { closedBadgeClicks = 0; }, 3000);
+    });
   }
 }
 

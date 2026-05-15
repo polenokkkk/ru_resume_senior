@@ -378,6 +378,41 @@
   </div>
 </div>
 
+<!-- CLOSED PAGE -->
+<div id="closedPage" style="display:none">
+  <div class="closed-bg"></div>
+  <div class="closed-wrap">
+    <div class="closed-badge" id="closedBadge">✓</div>
+    <div class="closed-eyebrow">Статус · 2026</div>
+    <h1 class="closed-title">Резюме закрыто</h1>
+    <p class="closed-sub">Иван принял оффер от топовой компании<br>с профессиональной командой 🚀</p>
+    <p class="closed-note">Если хотите что-то предложить на будущее —<br>он всегда открыт к интересным разговорам.</p>
+    <div class="closed-contacts">
+      <a class="closed-contact-btn" href="https://t.me/ivan_polenok" target="_blank">✈️ Telegram @ivan_polenok</a>
+      <a class="closed-contact-btn secondary" href="mailto:polenok.ivan18@gmail.com">✉️ polenok.ivan18@gmail.com</a>
+    </div>
+    <div class="closed-footer">
+      <span id="closedClickHint" class="closed-hint">👆 Попробуй кликнуть на галочку</span>
+    </div>
+    <div class="closed-secret" id="closedSecret" style="display:none">
+      <p>🎯 Нашёл секрет. Значит, внимательный.<br>Именно такие люди нужны в топовых командах.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="adminPanel" style="display:none">
+  <div class="admin-title">⚙️ Admin</div>
+  <div class="admin-row">
+    <span class="admin-label" id="adminLabel">Резюме открыто</span>
+    <label class="admin-toggle">
+      <input type="checkbox" id="closedToggle" onchange="toggleClosed(this.checked)">
+      <span class="admin-slider"></span>
+    </label>
+  </div>
+  <div class="admin-hint">Состояние сохраняется<br>в localStorage</div>
+</div>
+
 <!-- Scripts -->
 <script async src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <script src="js/translations.js?v=3"></script>
