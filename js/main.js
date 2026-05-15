@@ -360,7 +360,7 @@ function initClosedPage() {
   }
 
   // Apply closed state
-  var isClosed = localStorage.getItem('cv_closed') === '1';
+  var isClosed = true; // offer accepted
   if (isClosed) applyClosed(true);
 
   // Badge easter egg: triple click
