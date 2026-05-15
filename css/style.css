@@ -551,8 +551,14 @@ body {
   position: absolute; transition: transform 0.08s ease;
   box-shadow: 0 0 6px rgba(37,99,235,0.8);
 }
+.closed-visitor-text {
+  font-size: 12px; color: #475569; margin: -4px 0 16px; font-style: italic; min-height: 18px;
+}
 .closed-note {
   font-size: 13px; color: #64748b; line-height: 1.7; margin-bottom: 32px;
+}
+.closed-copyright {
+  margin-top: 40px; font-size: 11px; color: #334155; letter-spacing: 0.5px;
 }
 .closed-contacts { display: flex; flex-direction: column; gap: 12px; align-items: center; }
 .closed-contact-btn {

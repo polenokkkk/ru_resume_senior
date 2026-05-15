@@ -353,11 +353,11 @@ function initClosedPage() {
   var visits = parseInt(localStorage.getItem(visitKey) || '0', 10) + 1;
   localStorage.setItem(visitKey, visits);
   var visitorTexts = [
-    'Иван принял оффер от топовой компании<br>с профессиональной командой 🚀',
-    'Уже ' + visits + '-й рекрутер заглянул сюда 😏<br>Но оффер уже принят.',
-    'Резюме закрыто. Оффер принят. Иван занят 🎯',
+    'Первый визит — добро пожаловать 👋',
+    'Уже ' + visits + '-й рекрутер заглянул сюда 😏',
+    'В третий раз — оффер всё ещё принят 🎯',
     'Вы ' + visits + '-й посетитель. Немного поздно 🙈',
-    'Иван уже в новой команде 🚀<br>Но спасибо что заглянули!'
+    'Настойчивость достойна уважения 💪'
   ];
   var vtEl = document.getElementById('closedVisitorText');
   if (vtEl) vtEl.innerHTML = visitorTexts[Math.min(visits - 1, visitorTexts.length - 1)];
