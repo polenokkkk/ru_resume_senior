@@ -537,6 +537,20 @@ body {
 .closed-sub {
   font-size: 16px; color: #94a3b8; line-height: 1.7; margin-bottom: 12px;
 }
+/* Eyes */
+.closed-eyes {
+  display: flex; gap: 20px; justify-content: center; margin: 8px 0 16px;
+}
+.eye {
+  width: 38px; height: 38px; background: #1e293b; border: 2px solid #334155;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.pupil {
+  width: 14px; height: 14px; background: #2563eb; border-radius: 50%;
+  position: absolute; transition: transform 0.08s ease;
+  box-shadow: 0 0 6px rgba(37,99,235,0.8);
+}
 .closed-note {
   font-size: 13px; color: #64748b; line-height: 1.7; margin-bottom: 32px;
 }

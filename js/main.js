@@ -347,6 +347,85 @@ function toggleClosed(isClosed) {
 }
 
 function initClosedPage() {
+
+  // ── 1. VISITOR COUNTER TEXT ──
+  var visitKey = 'cv_visit_count';
+  var visits = parseInt(localStorage.getItem(visitKey) || '0', 10) + 1;
+  localStorage.setItem(visitKey, visits);
+  var visitorTexts = [
+    'Иван принял оффер от топовой компании<br>с профессиональной командой 🚀',
+    'Уже ' + visits + '-й рекрутер заглянул сюда 😏<br>Но оффер уже принят.',
+    'Резюме закрыто. Оффер принят. Иван занят 🎯',
+    'Вы ' + visits + '-й посетитель. Немного поздно 🙈',
+    'Иван уже в новой команде 🚀<br>Но спасибо что заглянули!'
+  ];
+  var vtEl = document.getElementById('closedVisitorText');
+  if (vtEl) vtEl.innerHTML = visitorTexts[Math.min(visits - 1, visitorTexts.length - 1)];
+
+  // ── 2. EYES FOLLOW CURSOR ──
+  var eyeLeft = document.getElementById('eyeLeft');
+  var eyeRight = document.getElementById('eyeRight');
+  function moveEye(eyeEl, mx, my) {
+    if (!eyeEl) return;
+    var rect = eyeEl.getBoundingClientRect();
+    var cx = rect.left + rect.width / 2;
+    var cy = rect.top + rect.height / 2;
+    var angle = Math.atan2(my - cy, mx - cx);
+    var dist = Math.min(8, rect.width / 4);
+    var px = Math.cos(angle) * dist;
+    var py = Math.sin(angle) * dist;
+    var pupil = eyeEl.querySelector('.pupil');
+    if (pupil) pupil.style.transform = 'translate(' + px + 'px,' + py + 'px)';
+  }
+  document.addEventListener('mousemove', function(e) {
+    moveEye(eyeLeft, e.clientX, e.clientY);
+    moveEye(eyeRight, e.clientX, e.clientY);
+  }, { passive: true });
+
+  // ── 3. PARTICLE TRAIL ──
+  var particles = [];
+  document.addEventListener('mousemove', function(e) {
+    var p = document.createElement('span');
+    p.textContent = ['✦','·','✧','★','•'][Math.floor(Math.random()*5)];
+    p.style.cssText = 'position:fixed;left:' + e.clientX + 'px;top:' + e.clientY + 'px;pointer-events:none;z-index:9999998;font-size:' + (8 + Math.random()*8) + 'px;color:rgba(37,99,235,' + (0.4 + Math.random()*0.5) + ');transition:opacity 0.6s ease,transform 0.6s ease;transform:translate(-50%,-50%);';
+    document.body.appendChild(p);
+    requestAnimationFrame(function() {
+      p.style.opacity = '0';
+      p.style.transform = 'translate(-50%,-200%) scale(0.5)';
+    });
+    setTimeout(function() { if (p.parentNode) p.parentNode.removeChild(p); }, 650);
+  }, { passive: true });
+
+  // ── 4. KONAMI CODE → 30s ACCESS ──
+  var konamiSeq = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+  var konamiIdx = 0;
+  document.addEventListener('keydown', function(e) {
+    if (e.key === konamiSeq[konamiIdx]) {
+      konamiIdx++;
+      if (konamiIdx === konamiSeq.length) {
+        konamiIdx = 0;
+        applyClosed(false);
+        var notice = document.createElement('div');
+        notice.id = 'konamiNotice';
+        notice.style.cssText = 'position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#059669;color:#fff;padding:12px 28px;border-radius:10px;z-index:9999999;font-family:Manrope,sans-serif;font-weight:700;font-size:13px;letter-spacing:0.5px;';
+        notice.textContent = '🔓 Konami-код активирован! Доступ: 30 секунд';
+        document.body.appendChild(notice);
+        var secs = 30;
+        var ticker = setInterval(function() {
+          secs--;
+          if (notice.parentNode) notice.textContent = '🔓 Секретный доступ: ' + secs + ' сек';
+          if (secs <= 0) {
+            clearInterval(ticker);
+            applyClosed(true);
+            if (notice.parentNode) notice.parentNode.removeChild(notice);
+          }
+        }, 1000);
+      }
+    } else {
+      konamiIdx = e.key === konamiSeq[0] ? 1 : 0;
+    }
+  });
+
   // Show admin panel if ?admin in URL
   var isAdmin = window.location.search.indexOf('admin') !== -1;
   if (isAdmin) {
