@@ -328,11 +328,13 @@ function applyClosed(closed) {
 
   if (closed) {
     page.style.display = 'none';
+    page.style.visibility = '';
     if (progressBar) progressBar.style.display = 'none';
     closedPage.style.display = 'flex';
     document.title = 'Иван Поленок — Оффер принят ✓';
   } else {
     page.style.display = '';
+    page.style.visibility = 'visible';
     if (progressBar) progressBar.style.display = '';
     closedPage.style.display = 'none';
     document.title = 'Иван Поленок — Senior Affiliate Manager';
