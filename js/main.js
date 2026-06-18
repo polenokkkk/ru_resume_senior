@@ -428,7 +428,7 @@ function initClosedPage() {
   }
 
   // Apply closed state
-  var isClosed = false; // offer accepted
+  var isClosed = true; // offer accepted
   if (isClosed) applyClosed(true);
 
   // Badge easter egg: triple click
