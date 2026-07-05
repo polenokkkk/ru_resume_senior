@@ -83,8 +83,8 @@ function toggleLang() {
 function runTypingEffect() {
   var el = document.getElementById('topTitleEl');
   var texts = {
-    ru: 'Senior Affiliate Manager · Publisher Development · CPA-сети',
-    en: 'Senior Affiliate Manager · Publisher Development · CPA Networks'
+    ru: 'Senior Affiliate Manager · Publisher Development',
+    en: 'Senior Affiliate Manager · Publisher Development'
   };
   var full = texts[currentLang] || texts.ru;
   var SPAN_LEN = 'Senior Affiliate Manager'.length;
