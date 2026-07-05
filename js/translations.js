@@ -1,7 +1,7 @@
 var translations = {
   ru: {
     name: 'Иван Поленок',
-    top_title: '<span>Senior Affiliate Manager</span> · Publisher Development · CPA-сети',
+    top_title: '<span>Senior Affiliate Manager</span> · Publisher Development',
     lbl_phone: 'Телефон', lbl_location: 'Локация', loc_val: 'Ереван · remote',
     s1_val: 'Нетворк', s1_desc: 'хантинг и реактивация',
     s2_desc: 'вебов в работе', s3_desc: 'рост активных партнёров',
@@ -42,7 +42,7 @@ var translations = {
     sb_comp: 'Компетенции',
     c1_tx: 'Hunt → onboard → activate → retain · хантинг китов · реактивация · грейдирование · QBR · CS-playbooks',
     c2_ti: 'Переговоры', c2_tx: 'Ставки, лимиты, капы · спецтермы · бонусы от сетей · привлечение внешних партнёров',
-    c3_ti: 'Аналитика', c3_tx: 'ROI/ROMI/LTV/EPC/CR · план-факт · HADI · DataLens · постбеки в реальном времени',
+    c3_ti: 'Аналитика', c3_tx: 'ROI/ROMI/LTV/EPC/CR/NGR/FTD/R2D/Retention · план-факт · HADI · DataLens · постбеки в реальном времени',
     c4_ti: 'Качество трафика', c4_tx: 'Fraud-контроль · фильтрация · контроль атрибуции · мониторинг CR по каждому партнёру',
     c5_ti: 'Публичность & Ивенты', c5_tx: 'Онлайн-стримы для партнёров · вебинары · выступления · организация участия в конференциях · контент для партнёрского сообщества',
     sb_tools: 'Инструменты',
@@ -72,7 +72,7 @@ var translations = {
   },
   en: {
     name: 'Ivan Polenok',
-    top_title: '<span>Senior Affiliate Manager</span> · Publisher Development · CPA Networks',
+    top_title: '<span>Senior Affiliate Manager</span> · Publisher Development',
     lbl_phone: 'Phone', lbl_location: 'Location', loc_val: 'Yerevan · remote',
     s1_val: 'Network', s1_desc: 'hunting & reactivation',
     s2_desc: 'publishers managed', s3_desc: 'growth in active partners',
@@ -113,7 +113,7 @@ var translations = {
     sb_comp: 'Key Competencies',
     c1_tx: 'Hunt → onboard → activate → retain · whale hunting · reactivation · grading · QBR · CS-playbooks',
     c2_ti: 'Negotiations', c2_tx: 'Rates, limits, caps · special terms · network bonuses · attracting external partners',
-    c3_ti: 'Analytics', c3_tx: 'ROI/ROMI/LTV/EPC/CR · plan vs actual · HADI · DataLens · real-time postbacks',
+    c3_ti: 'Analytics', c3_tx: 'ROI/ROMI/LTV/EPC/CR/NGR/FTD/R2D/Retention · plan vs actual · HADI · DataLens · real-time postbacks',
     c4_ti: 'Traffic Quality', c4_tx: 'Fraud control · filtering · attribution control · CR monitoring per partner',
     c5_ti: 'Community & Events', c5_tx: 'Online streams for publishers · webinars · speaking · conference coordination · affiliate community content',
     sb_tools: 'Tools',
