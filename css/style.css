@@ -266,6 +266,16 @@ body {
   letter-spacing: 0.8px; color: var(--accent); margin: 14px 0 6px;
 }
 
+.proj-badge {
+  display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.8px; color: #fff; background: var(--accent2);
+  border-radius: 4px; padding: 2px 6px; margin-left: 8px; vertical-align: middle;
+}
+.proj-link {
+  color: var(--accent); text-decoration: none; font-weight: 600;
+}
+.proj-link:hover { text-decoration: underline; }
+
 /* ── SIDEBAR ── */
 .sidebar { padding: 36px 28px; background: var(--sidebar-bg); }
 .sb-section { margin-bottom: 24px; }
