@@ -402,7 +402,9 @@
 <div class="modal-overlay" id="easterModal" onclick="closeModal('easterModal', event)">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('easterModal')">×</button>
-    <div class="modal-emoji">🎯</div>
+    <div class="modal-emoji">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+    </div>
     <div class="modal-title">Вы нашли пасхалку.</div>
     <div class="modal-subtitle">Это знак — надо написать.<br>Такие внимательные люди точно умеют работать с партнёрами 😏</div>
     <a class="modal-btn primary" href="https://t.me/ivan_polenok" target="_blank">Написать в TG</a>
@@ -413,12 +415,17 @@
 <div class="modal-overlay" id="minigameModal" onclick="closeModal('minigameModal', event)">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('minigameModal')">×</button>
-    <div class="modal-emoji">🤔</div>
+    <div class="modal-emoji">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+    </div>
     <div class="modal-title" data-i18n="mg_title">Итак, ваше решение?</div>
     <div class="modal-subtitle" data-i18n="mg_sub">Три варианта. Один правильный.</div>
-    <a class="modal-btn primary" href="https://t.me/ivan_polenok" target="_blank" data-i18n="mg_btn1">✅ Написать сейчас</a>
-    <a class="modal-btn secondary" href="https://t.me/ivan_polenok" target="_blank" data-i18n="mg_btn2">⏰ Написать завтра</a>
-    <a class="modal-btn ghost" href="https://t.me/ivan_polenok" target="_blank" data-i18n="mg_btn3">😬 Я пожалею об этом</a>
+    <a class="modal-btn primary" href="https://t.me/ivan_polenok" target="_blank" data-i18n="mg_btn1">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:6px"><path d="m5 12 5 5L20 7"/></svg>Написать сейчас</a>
+    <a class="modal-btn secondary" href="https://t.me/ivan_polenok" target="_blank" data-i18n="mg_btn2">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:6px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Написать завтра</a>
+    <a class="modal-btn ghost" href="https://t.me/ivan_polenok" target="_blank" data-i18n="mg_btn3">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:6px"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Я пожалею об этом</a>
   </div>
 </div>
 
@@ -499,7 +506,7 @@
 
 <!-- Scripts -->
 <script async src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-<script src="js/translations.js?v=10"></script>
+<script src="js/translations.js?v=11"></script>
 <script src="js/main.js?v=10"></script>
 
 </body>
