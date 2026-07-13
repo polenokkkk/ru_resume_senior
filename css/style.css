@@ -124,11 +124,22 @@ body {
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
 /* View counter */
+.view-counter-wrap {
+  display: flex; align-items: center; gap: 5px;
+  margin-top: 8px; min-height: 16px;
+}
 .view-counter {
   font-size: 11px;
   color: #475569;
-  margin-top: 8px;
-  min-height: 16px;
+}
+.blink-eye {
+  color: #475569; flex-shrink: 0;
+  animation: eyeBlink 3.5s ease-in-out infinite;
+  transform-origin: center;
+}
+@keyframes eyeBlink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  95%            { transform: scaleY(0.05); }
 }
 
 .topbar-right {

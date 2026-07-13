@@ -71,7 +71,7 @@ var translations = {
     toast_btn: 'Написать →',
     mg_title: 'Итак, ваше решение?', mg_sub: 'Три варианта. Один правильный.',
     mg_btn1: '✅ Написать сейчас', mg_btn2: '⏰ Написать завтра', mg_btn3: '😬 Я пожалею об этом',
-    view_fmt: '👁 Уже {n} рекрутеров просмотрели этот профиль',
+    view_fmt: 'Уже {n} рекрутеров просмотрели этот профиль',
     copy_contact: 'Скопировано! Теперь осталось написать 😉',
     title_hidden: '💼 Подождите... вы ищете звезду рынка?',
     title_return: '👋 Рады видеть вас снова! — Иван Поленок'
@@ -148,7 +148,7 @@ var translations = {
     toast_btn: 'Write →',
     mg_title: "So, what's your decision?", mg_sub: 'Three options. One right answer.',
     mg_btn1: '✅ Write now', mg_btn2: '⏰ Write tomorrow', mg_btn3: "😬 I'll regret this",
-    view_fmt: '👁 {n} recruiters have already viewed this profile',
+    view_fmt: '{n} recruiters have already viewed this profile',
     copy_contact: 'Copied! Now just send a message 😉',
     title_hidden: '💼 Wait... looking for a market star?',
     title_return: '👋 Welcome back! — Ivan Polenok'
