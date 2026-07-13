@@ -71,6 +71,25 @@ body {
   position: relative;
 }
 
+.topbar-left { display: flex; align-items: center; gap: 20px; }
+.top-left-text { display: flex; flex-direction: column; }
+
+.top-avatar-wrap { position: relative; flex-shrink: 0; }
+.top-avatar {
+  width: 80px; height: 80px; border-radius: 50%; object-fit: cover;
+  border: 3px solid transparent;
+  background: linear-gradient(var(--dark), var(--dark)) padding-box,
+              linear-gradient(135deg, #2563eb, #059669) border-box;
+  display: block;
+}
+.top-avatar-online {
+  position: absolute; bottom: 4px; right: 4px;
+  width: 13px; height: 13px; border-radius: 50%;
+  background: #22c55e;
+  border: 2px solid var(--dark);
+  box-shadow: 0 0 6px rgba(34,197,94,0.7);
+}
+
 .top-name {
   font-size: 36px;
   font-weight: 800;
