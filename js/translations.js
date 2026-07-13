@@ -2,6 +2,7 @@ var translations = {
   ru: {
     name: 'Иван Поленок',
     top_title: '<span>Senior Affiliate Manager</span> · Publisher Development',
+    open_to: 'Рассматриваю: Lead · Affiliate Manager · BizDev · Growth · Product (партнёрский)',
     lbl_phone: 'Телефон', lbl_location: 'Локация', loc_val: 'Ереван · remote',
     s1_val: 'Нетворк', s1_desc: 'хантинг и реактивация',
     s2_desc: 'вебов в работе', s3_desc: 'рост активных партнёров',
@@ -78,6 +79,7 @@ var translations = {
   en: {
     name: 'Ivan Polenok',
     top_title: '<span>Senior Affiliate Manager</span> · Publisher Development',
+    open_to: 'Open to: Lead · Affiliate Manager · BizDev · Growth · Product (affiliate)',
     lbl_phone: 'Phone', lbl_location: 'Location', loc_val: 'Yerevan · remote',
     s1_val: 'Network', s1_desc: 'hunting & reactivation',
     s2_desc: 'publishers managed', s3_desc: 'growth in active partners',

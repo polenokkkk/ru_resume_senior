@@ -91,6 +91,11 @@ body {
 }
 .top-title span { color: #60a5fa; font-weight: 600; }
 
+.top-open {
+  font-size: 11px; color: #64748b; margin-top: 5px;
+  letter-spacing: 0.2px; line-height: 1.4;
+}
+
 /* Typing cursor */
 .type-cursor {
   animation: blink 0.8s step-end infinite;
