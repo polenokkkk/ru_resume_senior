@@ -548,12 +548,16 @@ body {
 .print-foot-sep { margin: 0 6px; opacity: 0.5; }
 
 /* ── PAGE BREAK RULES (for PDF export) ── */
-.job { break-inside: avoid; page-break-inside: avoid; }
+/* Long jobs are allowed to flow across pages so we don't leave big gaps.
+   Only keep small, self-contained blocks and individual lines intact. */
 .comp-card { break-inside: avoid; page-break-inside: avoid; }
 .bullets li { break-inside: avoid; page-break-inside: avoid; }
 .stat { break-inside: avoid; page-break-inside: avoid; }
 .sb-section { break-inside: avoid; page-break-inside: avoid; }
+.job-meta { break-inside: avoid; page-break-inside: avoid; }
+.job-title, .job-company, .job-growth { break-after: avoid; page-break-after: avoid; }
 .section-head { break-after: avoid; page-break-after: avoid; }
+.job-sub-label { break-after: avoid; page-break-after: avoid; }
 .job-sub-label + ul { break-before: avoid; page-break-before: avoid; }
 
 /* ═══════════════════════════════════════
@@ -606,9 +610,11 @@ body {
   /* Show the print footer */
   .print-footer { display: block !important; }
 
-  /* Avoid stranded headings / lonely first lines */
+  /* Avoid stranded headings / lonely first lines.
+     Note: .job is intentionally NOT break-inside:avoid — long jobs flow
+     across pages so page 1 doesn't get a big empty gap before the section. */
   h1, h2, .job-title, .sb-label { break-after: avoid; page-break-after: avoid; }
-  .job, .comp-card, .sb-section { break-inside: avoid; page-break-inside: avoid; }
+  .comp-card, .sb-section { break-inside: avoid; page-break-inside: avoid; }
 }
 
 /* ═══════════════════════════════════════
