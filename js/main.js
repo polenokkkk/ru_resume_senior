@@ -217,6 +217,32 @@ function updateViewCounter() {
   document.getElementById('viewCounter').textContent = fmt.replace('{n}', viewCount);
 }
 
+// ─────────── DOWNLOAD PDF (native print → vector, crisp, multi-page) ───────────
+function downloadPDF() {
+  var fab = document.getElementById('pdfFab');
+  var cleanName = (currentLang === 'en')
+    ? 'Ivan Polenok — Senior Affiliate Manager'
+    : 'Иван Поленок — Senior Affiliate Manager';
+  var prevTitle = document.title;
+
+  if (fab) fab.classList.add('generating');
+  document.title = cleanName; // becomes the suggested PDF filename
+
+  var restored = false;
+  function restore() {
+    if (restored) return;
+    restored = true;
+    document.title = prevTitle;
+    if (fab) fab.classList.remove('generating');
+    window.removeEventListener('afterprint', restore);
+  }
+  window.addEventListener('afterprint', restore);
+  setTimeout(restore, 2000); // fallback if afterprint doesn't fire
+
+  // Give the browser a tick to apply the title before opening the dialog
+  setTimeout(function() { window.print(); }, 60);
+}
+
 // ─────────── COPY CONTACT ───────────
 var contactToastTimer = null;
 

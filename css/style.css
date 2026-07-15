@@ -508,30 +508,107 @@ body {
   .contact-toast { white-space: normal; text-align: center; width: calc(100% - 32px); }
 }
 
-/* ── PDF FOOTER ── */
-.pdf-url-footer {
-  display: none;
-  padding: 12px 48px 16px;
-  border-top: 1px solid var(--border);
-  font-size: 11px; color: var(--light);
-  text-align: center;
+/* ── DOWNLOAD PDF FLOATING BUTTON ── */
+.pdf-fab {
+  position: fixed;
+  bottom: 24px; right: 24px;
+  display: flex; align-items: center; gap: 8px;
+  background: var(--accent); color: #fff;
+  border: none; border-radius: 999px;
+  padding: 13px 20px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 13.5px; font-weight: 700;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(37,99,235,0.4);
+  z-index: 9998;
+  transition: transform 0.18s cubic-bezier(0.34,1.4,0.64,1), box-shadow 0.18s, background 0.18s;
 }
-.pdf-url-footer a { color: var(--accent); text-decoration: none; font-weight: 600; }
+.pdf-fab:hover {
+  background: #1d4ed8;
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 32px rgba(37,99,235,0.5);
+}
+.pdf-fab:active { transform: translateY(-1px) scale(0.99); }
+.pdf-fab svg { flex-shrink: 0; }
+.pdf-fab.generating { pointer-events: none; opacity: 0.75; }
+@media (max-width: 768px) {
+  .pdf-fab { bottom: 16px; right: 16px; padding: 11px 16px; font-size: 12.5px; }
+}
+
+/* ── PRINT-ONLY FOOTER ── */
+.print-footer {
+  display: none;
+  padding: 10px 48px;
+  border-top: 1px solid var(--border);
+  font-size: 10px; color: var(--light);
+  text-align: center; line-height: 1.5;
+}
+.print-footer b { color: var(--accent); font-weight: 700; }
+.print-foot-sep { margin: 0 6px; opacity: 0.5; }
 
 /* ── PAGE BREAK RULES (for PDF export) ── */
 .job { break-inside: avoid; page-break-inside: avoid; }
 .comp-card { break-inside: avoid; page-break-inside: avoid; }
 .bullets li { break-inside: avoid; page-break-inside: avoid; }
 .stat { break-inside: avoid; page-break-inside: avoid; }
+.sb-section { break-inside: avoid; page-break-inside: avoid; }
+.section-head { break-after: avoid; page-break-after: avoid; }
 .job-sub-label + ul { break-before: avoid; page-break-before: avoid; }
 
+/* ═══════════════════════════════════════
+   PRINT / PDF LAYOUT (A4, vector, crisp)
+═══════════════════════════════════════ */
+@page {
+  size: A4;
+  margin: 0;
+}
+
 @media print {
-  body { background: #fff; }
-  .page { margin: 0; border-radius: 0; box-shadow: none; }
+  html, body {
+    background: #fff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Full-bleed sheet, no screen chrome */
+  .page {
+    max-width: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    overflow: visible !important;      /* critical: don't clip multi-page content */
+    visibility: visible !important;
+  }
+
+  /* Hide everything interactive / web-only */
   #progressBar, #customCursor, .lang-toggle, .topbar-actions,
-  .exit-toast, .copy-toast, .contact-toast,
-  .modal-overlay, .reactions-block, .minigame-wrap { display: none !important; }
-  .pdf-url-footer { display: block !important; }
+  .exit-toast, .copy-toast, .contact-toast, .modal-overlay,
+  .reactions-block, .minigame-wrap, #adminPanel, .pdf-fab,
+  #closedPage, .comic-side, .view-counter-wrap {
+    display: none !important;
+  }
+
+  /* Tighten sidebar proportion for A4 */
+  .body { grid-template-columns: 1fr 232px; }
+  .main { padding: 26px 32px; }
+  .sidebar { padding: 26px 22px; }
+
+  /* Keep the dark header crisp and full-bleed */
+  .topbar { padding: 26px 32px; }
+
+  /* Slightly denser type for paper */
+  .about { font-size: 12px; }
+  .section { margin-bottom: 22px; }
+  .stat { padding: 14px 20px; }
+
+  /* Show the print footer */
+  .print-footer { display: block !important; }
+
+  /* Avoid stranded headings / lonely first lines */
+  h1, h2, .job-title, .sb-label { break-after: avoid; page-break-after: avoid; }
+  .job, .comp-card, .sb-section { break-inside: avoid; page-break-inside: avoid; }
 }
 
 /* ═══════════════════════════════════════
