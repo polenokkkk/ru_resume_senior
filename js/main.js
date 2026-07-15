@@ -237,10 +237,9 @@ function downloadPDF() {
     window.removeEventListener('afterprint', restore);
   }
   window.addEventListener('afterprint', restore);
-  setTimeout(restore, 2000); // fallback if afterprint doesn't fire
+  setTimeout(restore, 3000); // fallback if afterprint doesn't fire
 
-  // Give the browser a tick to apply the title before opening the dialog
-  setTimeout(function() { window.print(); }, 60);
+  window.print();
 }
 
 // ─────────── COPY CONTACT ───────────
@@ -525,63 +524,3 @@ function shareResume() {
   }
 }
 
-// ─────────── DOWNLOAD PDF ───────────
-function downloadPDF() {
-  var t = translations[currentLang] || translations.ru;
-  var btn = document.getElementById('btnPdf');
-  btn.disabled = true;
-  btn.innerHTML = '⏳ ' + t.pdf_loading;
-
-  var page = document.querySelector('.page');
-
-  // Show PDF footer
-  var footer = document.getElementById('pdfUrlFooter');
-  if (footer) footer.style.display = 'block';
-
-  // Fix overflow so full content is captured
-  var prevOverflow = page.style.overflow;
-  var prevRadius = page.style.borderRadius;
-  page.style.overflow = 'visible';
-  page.style.borderRadius = '0';
-
-  // Hide interactive elements
-  var style = document.createElement('style');
-  style.id = 'pdf-hide';
-  style.textContent = [
-    '#progressBar,#customCursor,#exitToast,#copyToast,#contactToast',
-    '.topbar-controls,.reactions-block,.minigame-wrap',
-    '.view-counter,.type-cursor'
-  ].join(',') + '{ display:none !important; }';
-  document.head.appendChild(style);
-
-  var lang = currentLang === 'ru' ? 'RU' : 'EN';
-  var filename = 'Ivan-Polenok-CV-' + lang + '.pdf';
-
-  var opt = {
-    margin: 0,
-    filename: filename,
-    image: { type: 'jpeg', quality: 0.97 },
-    html2canvas: {
-      scale: 1.5,
-      useCORS: true,
-      logging: false,
-      scrollX: 0,
-      scrollY: -window.scrollY
-    },
-    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-    pagebreak: { mode: ['css', 'legacy'] }
-  };
-
-  var cleanup = function() {
-    var s = document.getElementById('pdf-hide');
-    if (s) s.remove();
-    if (footer) footer.style.display = '';
-    page.style.overflow = prevOverflow;
-    page.style.borderRadius = prevRadius;
-    btn.disabled = false;
-    btn.innerHTML = '📥 <span data-i18n="btn_pdf">' + t.btn_pdf + '</span>';
-  };
-
-  html2pdf().set(opt).from(page).save()
-    .then(cleanup).catch(function(e) { console.error('PDF error:', e); cleanup(); });
-}
